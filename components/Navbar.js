@@ -9,11 +9,16 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    // document.body.classList.toggle("menu-open"); // Add class to body for blurring effect
   };
 
   const toggleHistory = () => {
     setHistoryOpen(!historyOpen);
+
+    // Retrieve search history from local storage
+    const storedHistory = localStorage.getItem("searchHistory");
+    if (storedHistory) {
+      setSearchHistory(JSON.parse(storedHistory));
+    }
   };
 
   const handleSearch = (term) => {
@@ -22,6 +27,14 @@ const Navbar = () => {
     localStorage.setItem("searchHistory", JSON.stringify(updatedHistory));
     setSearchHistory(updatedHistory);
   };
+
+    useEffect(() => {
+      const storedHistory = localStorage.getItem("searchHistory");
+      if (storedHistory) {
+        setSearchHistory(JSON.parse(storedHistory));
+      }
+    }, []);
+
 
   return (
     <nav className={`navbar ${menuOpen ? "open" : ""}`}>
@@ -64,7 +77,9 @@ const Navbar = () => {
           <h2>Search History</h2>
           <ul>
             {searchHistory.map((item, index) => (
-              <li key={index}>{item}</li>
+              <li key={index}>
+                <i className="fas fa-search"></i> {item}
+              </li>
             ))}
           </ul>
         </div>
