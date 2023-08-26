@@ -2,21 +2,22 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import SearchBar from "/components/SearchBar";
-import AnimeBlock from "../components/AnimeBlock"; 
+import { fetchTopAnime } from "../lib/api"; // Update the path
 
 function Home() {
   const [animeResults, setAnimeResults] = useState([]);
-  const [topAnime, setTopAnime] = useState([]); // State variable for top anime
+  const [topAnimeList, setTopAnimeList] = useState([]);
 
   useEffect(() => {
-    const fetchTopAnimeData = async () => {
+    async function fetchTopAnimeData() {
       try {
-        const response = await axios.get("/api/api?action=topAnime"); // Use the API route
-        setTopAnime(response.data);
+        const topAnimeList = await fetchTopAnime();
+        setTopAnimeList(topAnimeList);
       } catch (error) {
         console.error("Error fetching top anime:", error);
       }
-    };
+    }
+
     fetchTopAnimeData();
   }, []);
 
@@ -46,12 +47,15 @@ function Home() {
       </div>
 
       <div className="top-anime">
-        <h2>Top Anime</h2>
-        <div className="anime-blocks">
-          {topAnime.map((anime) => (
-            <AnimeBlock key={anime.mal_id} anime={anime} />
-          ))}
-        </div>
+        {topAnimeList.map((anime, index) => (
+          <Link key={index} href={`/anime/${anime.mal_id}`}>
+            <div className="top-anime-item">
+              <img src={anime.image_url} alt={anime.title} />
+              <h3>{anime.title}</h3>
+              <p>Rank: {anime.rank}</p>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );
