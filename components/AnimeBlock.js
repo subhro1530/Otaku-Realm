@@ -1,13 +1,18 @@
-// components/AnimeBlock.js
 import React from "react";
+import Link from "next/link";
 
 const AnimeBlock = ({ anime }) => {
   return (
-    <div className="anime-block">
-      <img src={anime.image_url} alt={anime.title} />
-      <h3>{anime.title}</h3>
-      <p>Rank: {anime.rank}</p>
-    </div>
+    <Link href={`/anime/${anime.attributes.slug}`}>
+      <a className="anime-block">
+        <img
+          src={anime.attributes.posterImage.original}
+          alt={anime.attributes.canonicalTitle}
+        />
+        <h3 className="anime-title">{anime.attributes.canonicalTitle}</h3>
+        <p className="anime-rank">Rank: {anime.attributes.popularityRank}</p>
+      </a>
+    </Link>
   );
 };
 

@@ -7,17 +7,15 @@ import styles from "/styles/AnimeDetail.module.css";
 const AnimeDetail = () => {
   const router = useRouter();
   const { name } = router.query;
-    const [animeDetails, setAnimeDetails] = useState(null);
-    console.log(router.query);
-
+  const [animeDetails, setAnimeDetails] = useState(null);
+    console.log(name);
   useEffect(() => {
     async function fetchAnimeDetails() {
       try {
-        const animeName = router.query.name; // Get the anime name from router.query
+        const animeName = name; // Get the anime name directly from router.query.name
         const response = await axios.get(
           `https://kitsu.io/api/edge/anime?filter[text]=${animeName}`
-          );
-          console.log("Anime name is :"+animeName);
+        );
         const animeData = response.data.data[0];
         setAnimeDetails(animeData);
       } catch (error) {
