@@ -3,6 +3,7 @@ import React from "react";
 import { PageProvider } from "../contexts/PageContext";
 import "../styles/main.css";
 import Navbar from "/components/Navbar"; // Adjust the path to the Navbar component
+import Footer from "/components/Footer"; 
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -26,6 +27,8 @@ function MyApp({ Component, pageProps }) {
       <PageProvider>
         <Component {...pageProps} />
       </PageProvider>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

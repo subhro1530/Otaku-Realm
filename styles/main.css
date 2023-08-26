@@ -302,3 +302,37 @@ button[type="submit"]:hover {
 .fa-search:before {
   content: "\f002"; /* Unicode for the search icon */
 }
+
+/* styles/Footer.css */
+.footer {
+  background-color: #1f1f1f;
+  color: #fff;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: #e15529;
+}
+
+.footer-copyright {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.footer-credit {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.footer-credit a {
+  color: #fff;
+  text-decoration: none;
+}
+
