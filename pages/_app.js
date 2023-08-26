@@ -1,32 +1,33 @@
 // pages/_app.js
+
 import React from "react";
 import { PageProvider } from "../contexts/PageContext";
 import "../styles/main.css";
 import Navbar from "/components/Navbar"; // Adjust the path to the Navbar component
-import Footer from "/components/Footer"; 
+import Footer from "/components/Footer";
+import AnimeDetail from "/pages/anime/[name]"; // Import the AnimeDetail component
+import { useRouter } from "next/router"; // Import the useRouter from Next.js
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
+  // Check if the current component is the AnimeDetail component
+  const isAnimeDetailPage = router.route.includes("/anime/");
+
   return (
     <div>
-      {" "}
       <link rel="shortcut icon" href="icon.png" type="image/x-icon" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
-        rel="stylesheet"
-      ></link>
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-      />
+      {/* ... (Rest of your code) */}
       {/* Wrap everything in a parent element */}
       <Navbar />
       <PageProvider>
-        <Component {...pageProps} />
+        {/* Render AnimeDetail component if it's an anime detail page */}
+        {isAnimeDetailPage ? (
+          <AnimeDetail {...pageProps} />
+        ) : (
+          <Component {...pageProps} />
+        )}
       </PageProvider>
       {/* Footer */}
       <Footer />

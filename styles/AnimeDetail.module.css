@@ -1,0 +1,101 @@
+/* AnimeDetail.module.css */
+
+.detailContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #111;
+}
+
+.detailContent {
+  max-width: 800px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.animeName {
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.detailContainer {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.detailContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.animeName {
+  font-size: 36px;
+  color: #ff4500; /* Orange Red color for headings */
+  margin-bottom: 20px;
+}
+
+.imageContainer {
+  margin-top: 20px;
+}
+
+.animeImage {
+  border-radius: 5px;
+}
+
+.episodeHeading {
+  font-size: 24px;
+  color: #ff4500; /* Orange Red color for headings */
+  margin-top: 30px;
+}
+
+.episodeList {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.episodeListItem {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.episodeListItem a {
+  color: #ff4500; /* Orange Red color for links */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.episodeListItem a:hover {
+  color: #e25822; /* Slightly darker shade for link hover */
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .detailContent {
+    padding: 10px;
+  }
+
+  .animeImage {
+    max-height: 300px;
+  }
+
+  .airedOn {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  .episodeListItem {
+    font-size: 14px;
+  }
+}

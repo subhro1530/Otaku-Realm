@@ -2,24 +2,9 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import SearchBar from "/components/SearchBar";
-import { fetchTopAnime } from "../lib/api"; // Update the path
 
 function Home() {
   const [animeResults, setAnimeResults] = useState([]);
-  const [topAnimeList, setTopAnimeList] = useState([]);
-
-  useEffect(() => {
-    async function fetchTopAnimeData() {
-      try {
-        const topAnimeList = await fetchTopAnime();
-        setTopAnimeList(topAnimeList);
-      } catch (error) {
-        console.error("Error fetching top anime:", error);
-      }
-    }
-
-    fetchTopAnimeData();
-  }, []);
 
   const handleSearch = async (term) => {
     try {
@@ -42,18 +27,6 @@ function Home() {
             <img src={anime.imageUrl} alt={anime.title} />
             <h3>{anime.title}</h3>
             <p>Episodes: {anime.episodes}</p>
-          </Link>
-        ))}
-      </div>
-
-      <div className="top-anime">
-        {topAnimeList.map((anime, index) => (
-          <Link key={index} href={`/anime/${anime.mal_id}`}>
-            <div className="top-anime-item">
-              <img src={anime.image_url} alt={anime.title} />
-              <h3>{anime.title}</h3>
-              <p>Rank: {anime.rank}</p>
-            </div>
           </Link>
         ))}
       </div>

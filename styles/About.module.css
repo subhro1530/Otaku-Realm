@@ -1,0 +1,67 @@
+/* About.module.css */
+
+/* Introduction Section */
+.introContainer {
+  background-image: url("/images/about-intro-bg.jpg"); /* Replace with Unsplash image */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.introContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Content Section */
+.contentContainer {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 100px 0;
+}
+
+.contentContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Vision Section */
+.visionContainer {
+  background-image: url("/images/about-vision-bg.jpg"); /* Replace with Unsplash image */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.visionContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Conclusion Section */
+.conclusionContainer {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 100px 0;
+}
+
+.conclusionContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Headings */
+.heading_about_us {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+/* Paragraphs */
+.paragraph {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
