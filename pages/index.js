@@ -1,10 +1,24 @@
 // pages/index.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import SearchBar from "/components/SearchBar";
+import AnimeBlock from "../components/AnimeBlock"; 
 
 function Home() {
   const [animeResults, setAnimeResults] = useState([]);
+  const [topAnime, setTopAnime] = useState([]); // State variable for top anime
+
+  useEffect(() => {
+    const fetchTopAnimeData = async () => {
+      try {
+        const response = await axios.get("/api/api?action=topAnime"); // Use the API route
+        setTopAnime(response.data);
+      } catch (error) {
+        console.error("Error fetching top anime:", error);
+      }
+    };
+    fetchTopAnimeData();
+  }, []);
 
   const handleSearch = async (term) => {
     try {
@@ -29,6 +43,15 @@ function Home() {
             <p>Episodes: {anime.episodes}</p>
           </Link>
         ))}
+      </div>
+
+      <div className="top-anime">
+        <h2>Top Anime</h2>
+        <div className="anime-blocks">
+          {topAnime.map((anime) => (
+            <AnimeBlock key={anime.mal_id} anime={anime} />
+          ))}
+        </div>
       </div>
     </div>
   );
