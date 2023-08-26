@@ -9,7 +9,7 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    document.body.classList.toggle("menu-open"); // Add class to body for blurring effect
+    // document.body.classList.toggle("menu-open"); // Add class to body for blurring effect
   };
 
   const toggleHistory = () => {

@@ -16,9 +16,10 @@ function MyApp({ Component, pageProps }) {
       ></link>
       <link
         rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        integrity="sha384-59p0Bj1t/0TdKJKM6VOrDufqKsN51t9WEa5xy5jQYn79JX4yZg4Ig4K+4RfNkC7B"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous"
+        referrerpolicy="no-referrer"
       />
       {/* Wrap everything in a parent element */}
       <Navbar />

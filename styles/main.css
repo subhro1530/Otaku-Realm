@@ -209,6 +209,10 @@ button[type="submit"]:hover {
   display: block;
 }
 
+.fa-bars{
+    color: #646464;
+  }
+
 /* Mobile Menu */
 @media (max-width: 768px) {
   .menu-toggle {
@@ -224,6 +228,7 @@ button[type="submit"]:hover {
     background-color: #1f1f1f;
     width: 100%;
     z-index: 1000;
+    margin-left: -40px;
   }
 
   .nav-links.active {
@@ -235,10 +240,9 @@ button[type="submit"]:hover {
   .nav-links li {
     margin: 10px 0;
   }
-
+  
   .menu-open {
     overflow: hidden;
-    filter: blur(5px); /* Add blurring effect when menu is open */
   }
 }
 
