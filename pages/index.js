@@ -1,7 +1,7 @@
 // pages/index.js
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "./components/SearchBar";
 
 function Home() {
   const [animeResults, setAnimeResults] = useState([]);
